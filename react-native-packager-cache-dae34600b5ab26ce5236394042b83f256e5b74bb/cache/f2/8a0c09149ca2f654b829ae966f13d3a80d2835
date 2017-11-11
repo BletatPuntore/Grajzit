@@ -1,0 +1,22 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ParallaxImage = exports.Pagination = exports.default = undefined;
+
+var _Carousel = require('./carousel/Carousel');
+
+var _Carousel2 = _interopRequireDefault(_Carousel);
+
+var _Pagination = require('./pagination/Pagination');
+
+var _Pagination2 = _interopRequireDefault(_Pagination);
+
+var _ParallaxImage = require('./parallaximage/ParallaxImage');
+
+var _ParallaxImage2 = _interopRequireDefault(_ParallaxImage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Carousel2.default;
+exports.Pagination = _Pagination2.default;
+exports.ParallaxImage = _ParallaxImage2.default;

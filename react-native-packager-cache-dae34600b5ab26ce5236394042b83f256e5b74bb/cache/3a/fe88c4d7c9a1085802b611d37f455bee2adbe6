@@ -1,0 +1,172 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/deni/BletatPuntore/src/containers/recipes/Browse/BrowseView.js';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require('react-native');
+
+var _reactNativeTabView = require('react-native-tab-view');
+
+var _theme = require('@theme/');
+
+var _ListingContainer = require('@containers/recipes/Listing/ListingContainer');
+
+var _ListingContainer2 = _interopRequireDefault(_ListingContainer);
+
+var _ui = require('@ui/');
+
+var _Loading = require('@components/general/Loading');
+
+var _Loading2 = _interopRequireDefault(_Loading);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var styles = _reactNative.StyleSheet.create({
+  tabContainer: {
+    flex: 1
+  },
+  tabbar: {
+    backgroundColor: _theme.AppColors.brand.primary
+  },
+  tabbarIndicator: {
+    backgroundColor: '#FFF'
+  },
+  tabbarText: {
+    color: '#FFF'
+  }
+});
+
+var loadingTimeout = void 0;
+
+var RecipeTabs = function (_Component) {
+  _inherits(RecipeTabs, _Component);
+
+  function RecipeTabs(props) {
+    _classCallCheck(this, RecipeTabs);
+
+    var _this = _possibleConstructorReturn(this, (RecipeTabs.__proto__ || Object.getPrototypeOf(RecipeTabs)).call(this, props));
+
+    _this.componentDidMount = function () {
+      _reactNative.InteractionManager.runAfterInteractions(function () {
+        _this.setTabs();
+      });
+    };
+
+    _this.componentWillUnmount = function () {
+      return clearTimeout(loadingTimeout);
+    };
+
+    _this.setTabs = function () {
+      var routes = [];
+      var idx = 0;
+      _this.props.meals.forEach(function (meal) {
+        routes.push({
+          key: idx.toString(),
+          id: meal.id.toString(),
+          title: meal.title
+        });
+
+        idx += 1;
+      });
+
+      _this.setState({
+        navigation: {
+          index: 0,
+          routes: routes
+        }
+      }, function () {
+        loadingTimeout = setTimeout(function () {
+          _this.setState({ loading: false });
+        }, 100);
+      });
+    };
+
+    _this.handleChangeTab = function (index) {
+      _this.setState({
+        navigation: _extends({}, _this.state.navigation, { index: index })
+      });
+    };
+
+    _this.renderScene = function (_ref) {
+      var route = _ref.route;
+
+      if (parseInt(route.key, 0) !== parseInt(_this.state.navigation.index, 0) && _this.state.visitedRoutes.indexOf(route.key) < 0) {
+        return null;
+      }
+
+      if (_this.state.visitedRoutes.indexOf(_this.state.navigation.index) < 0) {
+        _this.state.visitedRoutes.push(route.key);
+      }
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.tabContainer, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 148
+          }
+        },
+        _react2.default.createElement(_ListingContainer2.default, {
+          meal: route.id,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 149
+          }
+        })
+      );
+    };
+
+    _this.render = function () {
+      if (_this.state.loading || !_this.state.navigation) return _react2.default.createElement(_Loading2.default, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 157
+        }
+      });
+
+      return _react2.default.createElement(_reactNativeTabView.TabViewAnimated, {
+        style: [styles.tabContainer],
+        renderScene: _this.renderScene,
+
+        navigationState: _this.state.navigation,
+        onRequestChangeTab: _this.handleChangeTab,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 160
+        }
+      });
+    };
+
+    _this.state = {
+      loading: true,
+      visitedRoutes: []
+    };
+    return _this;
+  }
+
+  return RecipeTabs;
+}(_react.Component);
+
+RecipeTabs.componentName = 'RecipeTabs';
+RecipeTabs.propTypes = {
+  meals: _propTypes2.default.arrayOf(_propTypes2.default.object).isRequired
+};
+RecipeTabs.defaultProps = {
+  meals: []
+};
+exports.default = RecipeTabs;

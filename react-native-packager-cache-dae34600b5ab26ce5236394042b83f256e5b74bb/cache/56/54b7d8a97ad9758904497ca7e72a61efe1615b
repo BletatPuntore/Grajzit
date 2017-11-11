@@ -1,0 +1,61 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initialState = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = recipeReducer;
+
+var _store = require('./store');
+
+var _store2 = _interopRequireDefault(_store);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var initialState = exports.initialState = _store2.default;
+
+function recipeReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'FAVOURITES_REPLACE':
+      {
+        return _extends({}, state, {
+          favourites: action.data || []
+        });
+      }
+    case 'MEALS_REPLACE':
+      {
+        return _extends({}, state, {
+          meals: action.data
+        });
+      }
+    case 'RECIPES_REPLACE':
+      {
+        var recipes = [];
+
+        if (action.data && typeof action.data === 'object') {
+          recipes = action.data.map(function (item) {
+            return {
+              id: item.id,
+              title: item.title,
+              body: item.body,
+              category: item.category,
+              image: item.image,
+              author: item.author,
+              ingredients: item.ingredients,
+              method: item.method
+            };
+          });
+        }
+
+        return _extends({}, state, {
+          recipes: recipes
+        });
+      }
+    default:
+      return state;
+  }
+}

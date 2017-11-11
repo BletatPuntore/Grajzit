@@ -1,0 +1,221 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/deni/BletatPuntore/src/containers/auth/AuthenticateView.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _theme = require('@theme/');
+
+var _reactNativeElements = require('react-native-elements');
+
+var _ui = require('@ui/');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var styles = _reactNative.StyleSheet.create({
+  background: {
+    backgroundColor: _theme.AppColors.brand.primary,
+    height: _theme.AppSizes.screen.height,
+    width: _theme.AppSizes.screen.width
+  },
+  logo: {
+    width: _theme.AppSizes.screen.width * 0.85,
+    resizeMode: 'contain'
+  },
+  whiteText: {
+    color: '#FFF'
+  },
+  wrapper: {
+    borderRadius: 5,
+    marginBottom: 5
+  },
+  button: {
+    backgroundColor: '#eeeeee',
+    padding: 10
+  }
+});
+
+var Authenticate = function (_Component) {
+  _inherits(Authenticate, _Component);
+
+  function Authenticate() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Authenticate);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Authenticate.__proto__ || Object.getPrototypeOf(Authenticate)).call.apply(_ref, [this].concat(args))), _this), _this.render = function () {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: [_theme.AppStyles.containerCentered, _theme.AppStyles.container, styles.background], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53
+          }
+        },
+        _react2.default.createElement(_reactNative.Image, {
+          source: require('../../images/bg.png'),
+          style: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '110%'
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54
+          }
+        }),
+        _react2.default.createElement(_ui.Spacer, { size: 200, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 65
+          }
+        }),
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: [_theme.AppStyles.row, _theme.AppStyles.paddingHorizontal], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 81
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: [_theme.AppStyles.flex1], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 82
+              }
+            },
+            _react2.default.createElement(_ui.Button, {
+              title: 'Login',
+              icon: { name: 'lock' },
+              onPress: function onPress() {
+                return _reactNative.Alert.alert('Kyçu si Kompani ose si Klient', 'Nëse kyçeni si klient atëher mund të kyçeni me fb dhe gmail!', [{ text: 'Klient', onPress: _reactNativeRouterFlux.Actions.login }, { text: 'Kompani', onPress: _reactNativeRouterFlux.Actions.login }]);
+              },
+
+              backgroundColor: '#00BF9A',
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 83
+              }
+            })
+          )
+        ),
+        _react2.default.createElement(_ui.Spacer, { size: 10, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 101
+          }
+        }),
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: [_theme.AppStyles.row, _theme.AppStyles.paddingHorizontal], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 103
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: [_theme.AppStyles.flex1], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 104
+              }
+            },
+            _react2.default.createElement(_ui.Button, {
+              title: 'Sign up',
+              icon: { name: 'face' },
+              onPress: _reactNativeRouterFlux.Actions.signUp,
+              backgroundColor: '#00BF9A',
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 105
+              }
+            })
+          )
+        ),
+        _react2.default.createElement(_ui.Spacer, { size: 15, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 114
+          }
+        }),
+        _react2.default.createElement(
+          _ui.Text,
+          { p: true, style: [_theme.AppStyles.textCenterAligned, styles.whiteText], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 116
+            }
+          },
+          '- or -'
+        ),
+        _react2.default.createElement(_ui.Spacer, { size: 10, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 120
+          }
+        }),
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: [_theme.AppStyles.row, _theme.AppStyles.paddingHorizontal], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 122
+            }
+          },
+          _react2.default.createElement(_reactNative.View, { style: [_theme.AppStyles.flex1], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 123
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: [_theme.AppStyles.flex2], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 124
+              }
+            },
+            _react2.default.createElement(_ui.Button, {
+              small: true,
+              title: 'Skip',
+              onPress: _reactNativeRouterFlux.Actions.app,
+              raised: false,
+              backgroundColor: 'rgba(255,255,255,0.2)',
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 125
+              }
+            })
+          ),
+          _react2.default.createElement(_reactNative.View, { style: [_theme.AppStyles.flex1], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 133
+            }
+          })
+        ),
+        _react2.default.createElement(_ui.Spacer, { size: 40, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 136
+          }
+        })
+      );
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  return Authenticate;
+}(_react.Component);
+
+Authenticate.componentName = 'Authenticate';
+exports.default = Authenticate;

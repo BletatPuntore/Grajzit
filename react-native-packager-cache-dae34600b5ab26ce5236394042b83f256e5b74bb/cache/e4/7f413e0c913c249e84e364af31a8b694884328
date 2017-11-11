@@ -1,0 +1,187 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/deni/BletatPuntore/src/containers/grid/Preferences.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    Preferences: {
+        displayName: 'Preferences'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/home/deni/BletatPuntore/src/containers/grid/Preferences.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var Preferences = _wrapComponent('Preferences')(function (_Component) {
+    _inherits(Preferences, _Component);
+
+    function Preferences() {
+        _classCallCheck(this, Preferences);
+
+        return _possibleConstructorReturn(this, (Preferences.__proto__ || Object.getPrototypeOf(Preferences)).apply(this, arguments));
+    }
+
+    _createClass(Preferences, [{
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(
+                _reactNative.ScrollView,
+                { style: styles.scrollContainer, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 9
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.container, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 11
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.TouchableHighlight,
+                        { onPress: this._onPressButton, underlayColor: 'white', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 12
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: styles.box, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 13
+                                }
+                            },
+                            _react3.default.createElement(_reactNative.Image, { source: require('../../images/tech.jpg'), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 13
+                                }
+                            })
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.box, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 15
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, { source: require('../../images/garderobe.png'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 15
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.box, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 16
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, { source: require('../../images/femije.png'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 16
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.box, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 17
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, { source: require('../../images/jete.png'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 17
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.box, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 18
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, { source: require('../../images/libra.png'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 18
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.box, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 19
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, { source: require('../../images/ushqim.png'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 19
+                            }
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Preferences;
+}(_react2.Component));
+
+var styles = _reactNative.StyleSheet.create({
+    scrollContainer: {
+        flex: 1
+    },
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        padding: 2
+    },
+    box: {
+        margin: 2,
+        width: _reactNative.Dimensions.get('window').width / 2 - 6,
+        height: 180,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white'
+    }
+
+});
+
+exports.default = Preferences;

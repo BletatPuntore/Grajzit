@@ -1,0 +1,117 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/deni/BletatPuntore/src/containers/recipes/Listing/ListingContainer.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRedux = require('react-redux');
+
+var _actions = require('@redux/recipes/actions');
+
+var RecipeActions = _interopRequireWildcard(_actions);
+
+var _Loading = require('@components/general/Loading');
+
+var _Loading2 = _interopRequireDefault(_Loading);
+
+var _ListingView = require('./ListingView');
+
+var _ListingView2 = _interopRequireDefault(_ListingView);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    recipes: state.recipe.recipes || []
+  };
+};
+
+var mapDispatchToProps = {
+  getRecipes: RecipeActions.getRecipes
+};
+
+var MealListing = function (_Component) {
+  _inherits(MealListing, _Component);
+
+  function MealListing() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, MealListing);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MealListing.__proto__ || Object.getPrototypeOf(MealListing)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      loading: false,
+      recipes: []
+    }, _this.componentDidMount = function () {
+      return _this.getThisMealsRecipes(_this.props.recipes);
+    }, _this.componentWillReceiveProps = function (props) {
+      return _this.getThisMealsRecipes(props.recipes);
+    }, _this.getThisMealsRecipes = function (allRecipes) {
+      if (allRecipes.length > 0) {
+        var recipes = allRecipes.filter(function (recipe) {
+          return recipe.category.toString() === _this.props.meal.toString();
+        });
+
+        _this.setState({
+          recipes: recipes,
+          loading: false
+        });
+      }
+    }, _this.fetchRecipes = function () {
+      return _this.props.getRecipes().then(function () {
+        return _this.setState({ error: null, loading: false });
+      }).catch(function (err) {
+        return _this.setState({ error: err.message, loading: false });
+      });
+    }, _this.render = function () {
+      if (_this.state.loading) return _react2.default.createElement(_Loading2.default, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 76
+        }
+      });
+
+      return _react2.default.createElement(_ListingView2.default, {
+        recipes: _this.state.recipes,
+        reFetch: _this.fetchRecipes,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79
+        }
+      });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  return MealListing;
+}(_react.Component);
+
+MealListing.componentName = 'MealListing';
+MealListing.propTypes = {
+  recipes: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  meal: _propTypes2.default.string.isRequired,
+  getRecipes: _propTypes2.default.func.isRequired
+};
+MealListing.defaultProps = {
+  recipes: []
+};
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MealListing);

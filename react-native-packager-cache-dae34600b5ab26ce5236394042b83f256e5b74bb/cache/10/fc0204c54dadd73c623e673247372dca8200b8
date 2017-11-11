@@ -1,0 +1,149 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = '/home/deni/BletatPuntore/node_modules/react-native-easy-gridview/Example/GridView.js';
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    GridView: {
+        displayName: 'GridView'
+    }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/home/deni/BletatPuntore/node_modules/react-native-easy-gridview/Example/GridView.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var styles = _reactNative.StyleSheet.create({
+    contentContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'flex-start',
+        marginHorizontal: 0,
+        paddingHorizontal: 0
+    }
+});
+
+var GridView = _wrapComponent('GridView')((_temp = _class = function (_Component) {
+    _inherits(GridView, _Component);
+
+    function GridView(props) {
+        _classCallCheck(this, GridView);
+
+        var _this = _possibleConstructorReturn(this, (GridView.__proto__ || Object.getPrototypeOf(GridView)).call(this, props));
+
+        _this.state = {};
+        _this._onLayout = _this._onLayout.bind(_this);
+        _this._renderRow = _this._renderRow.bind(_this);
+        return _this;
+    }
+
+    _createClass(GridView, [{
+        key: '_onLayout',
+        value: function _onLayout(event) {
+            var width = event.nativeEvent.layout.width;
+
+
+            if (this.state.availableWidth !== width) {
+                this.setState({
+                    availableWidth: width,
+                    itemWidth: Math.floor(width / this.props.numberOfItemsPerRow),
+
+                    outerContainerLeftPadding: Math.floor(width % this.props.numberOfItemsPerRow / 2)
+                });
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            if (__DEV__) {
+                if (this.state.availableWidth === 0) {
+                    console.warn('Cannot render GridView because available width is 0! ' + 'Try setting {flex: 1} to the parent component.');
+                }
+            }
+
+            return _react3.default.createElement(
+                _reactNative.View,
+                {
+                    onLayout: this._onLayout,
+                    style: this.state.outerContainerLeftPadding > 0 && {
+                        paddingLeft: this.state.outerContainerLeftPadding
+                    }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 61
+                    }
+                },
+                this.state.availableWidth > 0 && this._renderListView()
+            );
+        }
+    }, {
+        key: '_renderListView',
+        value: function _renderListView() {
+            return _react3.default.createElement(_reactNative.ListView, _extends({
+                ref: this.props.listViewRef
+            }, this.props, {
+                renderRow: this._renderRow,
+                contentContainerStyle: [this.props.contentContainerStyle, styles.contentContainer],
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 73
+                }
+            }));
+        }
+    }, {
+        key: '_renderRow',
+        value: function _renderRow() {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: { width: this.state.itemWidth }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 84
+                    }
+                },
+                this.props.renderRow.apply(null, arguments)
+            );
+        }
+    }]);
+
+    return GridView;
+}(_react2.Component), _class.propTypes = {
+    numberOfItemsPerRow: _react3.default.PropTypes.number.isRequired,
+    renderRow: _react3.default.PropTypes.func.isRequired,
+    listViewRef: _react3.default.PropTypes.func,
+    contentContainerStyle: _react3.default.PropTypes.any
+}, _temp));
+
+exports.default = GridView;

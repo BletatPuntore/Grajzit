@@ -1,0 +1,246 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/deni/BletatPuntore/src/containers/grid/BusinessList.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _reactNativeLinearGradient = require('react-native-linear-gradient');
+
+var _reactNativeLinearGradient2 = _interopRequireDefault(_reactNativeLinearGradient);
+
+var _reactNativeSnapCarousel = require('react-native-snap-carousel');
+
+var _reactNativeSnapCarousel2 = _interopRequireDefault(_reactNativeSnapCarousel);
+
+var _SliderEntry = require('../../styles/SliderEntry.style');
+
+var _SliderEntry2 = require('../../components/SliderEntry');
+
+var _SliderEntry3 = _interopRequireDefault(_SliderEntry2);
+
+var _index3 = require('../../styles/index.style');
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _entries = require('../../static/entries');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    BusinessList: {
+        displayName: 'BusinessList'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/home/deni/BletatPuntore/src/containers/grid/BusinessList.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var SLIDER_1_FIRST_ITEM = 1;
+
+var BusinessList = _wrapComponent('BusinessList')(function (_Component) {
+    _inherits(BusinessList, _Component);
+
+    function BusinessList(props) {
+        _classCallCheck(this, BusinessList);
+
+        var _this = _possibleConstructorReturn(this, (BusinessList.__proto__ || Object.getPrototypeOf(BusinessList)).call(this, props));
+
+        _this.state = {
+            slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
+            slider1Ref: null
+        };
+        return _this;
+    }
+
+    _createClass(BusinessList, [{
+        key: '_renderItem',
+        value: function _renderItem(_ref) {
+            var item = _ref.item,
+                index = _ref.index;
+
+            return _react3.default.createElement(_SliderEntry3.default, {
+                data: item,
+                even: (index + 1) % 2 === 0,
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 89
+                }
+            });
+        }
+    }, {
+        key: '_renderItemWithParallax',
+        value: function _renderItemWithParallax(_ref2, parallaxProps) {
+            var item = _ref2.item,
+                index = _ref2.index;
+
+            return _react3.default.createElement(_SliderEntry3.default, {
+                data: item,
+                even: (index + 1) % 2 === 0,
+                parallax: true,
+                parallaxProps: parallaxProps,
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 98
+                }
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: _index4.default.container, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 172
+                    }
+                },
+                _react3.default.createElement(_reactNative.StatusBar, {
+                    translucent: true,
+                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                    barStyle: 'light-content',
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 173
+                    }
+                }),
+                _react3.default.createElement(
+                    _reactNative.ScrollView,
+                    {
+                        style: _index4.default.scrollview,
+                        contentContainerStyle: _index4.default.scrollviewContentContainer,
+                        indicatorStyle: 'white',
+                        scrollEventThrottle: 200,
+                        directionalLockEnabled: true,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 179
+                        }
+                    },
+                    this.example1,
+                    this.example2
+                )
+            );
+        }
+    }, {
+        key: 'example1',
+        get: function get() {
+            var _this2 = this;
+
+            var _state = this.state,
+                slider1ActiveSlide = _state.slider1ActiveSlide,
+                slider1Ref = _state.slider1Ref;
+
+
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: _index4.default.exampleContainer, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 111
+                    }
+                },
+                _react3.default.createElement(_reactNativeSnapCarousel2.default, {
+                    data: _entries.ENTRIES1,
+                    renderItem: this._renderItemWithParallax,
+                    sliderWidth: _SliderEntry.sliderWidth,
+                    itemWidth: _SliderEntry.itemWidth,
+                    hasParallaxImages: true,
+                    firstItem: SLIDER_1_FIRST_ITEM,
+                    inactiveSlideScale: 0.94,
+                    inactiveSlideOpacity: 0.7,
+                    enableMomentum: false,
+                    containerCustomStyle: _index4.default.slider,
+                    contentContainerCustomStyle: _index4.default.sliderContentContainer,
+                    loop: true,
+                    loopClonesPerSide: 2,
+                    autoplay: true,
+                    autoplayDelay: 500,
+                    autoplayInterval: 5000,
+                    onSnapToItem: function onSnapToItem(index) {
+                        return _this2.setState({ slider1ActiveSlide: index });
+                    },
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 113
+                    }
+                }),
+                _react3.default.createElement(_reactNativeSnapCarousel.Pagination, {
+                    dotsLength: _entries.ENTRIES1.length,
+                    activeDotIndex: slider1ActiveSlide,
+                    containerStyle: _index4.default.paginationContainer,
+                    dotColor: 'rgba(255, 255, 255, 0.92)',
+                    dotStyle: _index4.default.paginationDot,
+                    inactiveDotColor: _index3.colors.black,
+                    inactiveDotOpacity: 1,
+                    inactiveDotScale: 0.6,
+                    carouselRef: slider1Ref,
+                    tappableDots: !!slider1Ref,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 133
+                    }
+                })
+            );
+        }
+    }, {
+        key: 'example2',
+        get: function get() {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: _index4.default.exampleContainer, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 151
+                    }
+                },
+                _react3.default.createElement(_reactNativeSnapCarousel2.default, {
+                    data: _entries.ENTRIES2,
+                    renderItem: this._renderItem,
+                    sliderWidth: _SliderEntry.sliderWidth,
+                    itemWidth: _SliderEntry.itemWidth,
+                    inactiveSlideScale: 1,
+                    inactiveSlideOpacity: 1,
+                    enableMomentum: true,
+                    activeSlideAlignment: 'start',
+                    containerCustomStyle: _index4.default.slider,
+                    contentContainerCustomStyle: _index4.default.sliderContentContainer,
+                    removeClippedSubviews: false,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 152
+                    }
+                })
+            );
+        }
+    }]);
+
+    return BusinessList;
+}(_react2.Component));
+
+exports.default = BusinessList;

@@ -1,0 +1,254 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/deni/BletatPuntore/src/containers/StyleGuideView.js';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactNativeTabView = require('react-native-tab-view');
+
+var _reactNativeElements = require('react-native-elements');
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _theme = require('@theme/');
+
+var _ui = require('@components/ui/');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var dummyData1 = [{ title: 'Settings', icon: 'build' }, { title: 'Alarms', icon: 'alarm' }, { title: 'Cards', icon: 'card-membership' }, { title: 'Favourites', icon: 'grade' }, { title: 'Help', icon: 'help' }];
+
+var dummyData2 = [{
+  title: 'Hajrush Lenjani',
+  role: 'CEO',
+  avatar: 'https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_smart_guy-512.png'
+}, {
+  title: 'Kemajl Nuredini',
+  role: 'CTO',
+  avatar: 'https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_960_720.png'
+}, {
+  title: 'Gezim Veliu',
+  role: 'Software engineer',
+  avatar: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAA3hAAAAJGFlMzIzNTc0LTFjNDYtNGRkNC05Y2MyLWRiOWZlM2M4YzcwYw.jpg'
+}, {
+  title: 'Egzon Bahtiri',
+  role: 'Software developer',
+  avatar: 'https://pbs.twimg.com/profile_images/880953747106607104/vXLpU3KQ_400x400.jpg'
+}, {
+  title: 'Qendrim Sadiku',
+  role: 'IOS Developer',
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/jina/128.jpg'
+}];
+
+var styles = _reactNative.StyleSheet.create({
+  tabContainer: {
+    flex: 1
+  },
+  tabbar: {
+    backgroundColor: _theme.AppColors.brand.primary
+  },
+  tabbarIndicator: {
+    backgroundColor: '#FFF'
+  },
+  tabbar_text: {
+    color: '#FFF'
+  }
+});
+
+var StyleGuide = function (_Component) {
+  _inherits(StyleGuide, _Component);
+
+  function StyleGuide(props) {
+    _classCallCheck(this, StyleGuide);
+
+    var _this = _possibleConstructorReturn(this, (StyleGuide.__proto__ || Object.getPrototypeOf(StyleGuide)).call(this, props));
+
+    _initialiseProps.call(_this);
+
+    var ds = new _reactNative.ListView.DataSource({ rowHasChanged: function rowHasChanged(r1, r2) {
+        return r1 !== r2;
+      } });
+    var ds2 = new _reactNative.ListView.DataSource({ rowHasChanged: function rowHasChanged(r1, r2) {
+        return r1 !== r2;
+      } });
+
+    _this.state = {
+      navigation: {
+        index: 0,
+        routes: [{ key: '0', title: 'Lists' }]
+      },
+      dataSource: ds.cloneWithRows(dummyData1),
+      dataSource2: ds2.cloneWithRows(dummyData2)
+    };
+    return _this;
+  }
+
+  return StyleGuide;
+}(_react.Component);
+
+StyleGuide.componentName = 'StyleGuide';
+
+var _initialiseProps = function _initialiseProps() {
+  var _this2 = this;
+
+  this.handleChangeTab = function (index) {
+    _this2.setState({
+      navigation: _extends({}, _this2.state.navigation, { index: index })
+    });
+  };
+
+  this.renderRow = function (data, sectionID) {
+    return _react2.default.createElement(_ui.ListItem, {
+      key: 'list-row-' + sectionID,
+      onPress: _reactNativeRouterFlux.Actions.comingSoon,
+      title: data.title,
+      subtitle: data.role || null,
+      leftIcon: data.icon ? { name: data.icon } : null,
+      avatar: data.avatar ? { uri: data.avatar } : null,
+      roundAvatar: !!data.avatar,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 130
+      }
+    });
+  };
+
+  this.renderScene = function (_ref) {
+    var route = _ref.route;
+
+    switch (route.key) {
+      case '0':
+        return _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.tabContainer, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 148
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.ScrollView,
+            {
+              automaticallyAdjustContentInsets: false,
+              style: [_theme.AppStyles.container],
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 149
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: [_theme.AppStyles.paddingHorizontal], __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 153
+                }
+              },
+              _react2.default.createElement(_ui.Spacer, { size: 15, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 154
+                }
+              }),
+              _react2.default.createElement(
+                _ui.Text,
+                { h2: true, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 155
+                  }
+                },
+                'List Rows'
+              ),
+              _react2.default.createElement(_ui.Spacer, { size: -10, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 156
+                }
+              })
+            ),
+            _react2.default.createElement(
+              _ui.List,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 158
+                }
+              },
+              _react2.default.createElement(_reactNative.ListView, {
+                renderRow: _this2.renderRow,
+                dataSource: _this2.state.dataSource,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 159
+                }
+              })
+            ),
+            _react2.default.createElement(
+              _ui.List,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 164
+                }
+              },
+              _react2.default.createElement(_reactNative.ListView, {
+                renderRow: _this2.renderRow,
+                dataSource: _this2.state.dataSource2,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 165
+                }
+              })
+            )
+          )
+        );
+    }
+  };
+
+  this.renderHeader = function (props) {
+    return _react2.default.createElement(_reactNativeTabView.TabBar, _extends({}, props, {
+      style: styles.tabbar,
+      indicatorStyle: styles.tabbarIndicator,
+      renderLabel: function renderLabel(scene) {
+        return _react2.default.createElement(
+          _ui.Text,
+          { style: [styles.tabbar_text], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 368
+            }
+          },
+          scene.route.title
+        );
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 363
+      }
+    }));
+  };
+
+  this.render = function () {
+    return _react2.default.createElement(_reactNativeTabView.TabViewAnimated, {
+      style: [styles.tabContainer],
+      renderScene: _this2.renderScene,
+      renderHeader: _this2.renderHeader,
+      navigationState: _this2.state.navigation,
+      onRequestChangeTab: _this2.handleChangeTab,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 374
+      }
+    });
+  };
+};
+
+exports.default = StyleGuide;
